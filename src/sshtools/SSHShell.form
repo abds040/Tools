@@ -159,8 +159,12 @@
                               <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                               <Component id="lblSuchen" min="-2" pref="54" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="_Suchen" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace pref="376" max="32767" attributes="0"/>
+                              <Component id="_Suche1" min="-2" pref="96" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="lblSuchen1" min="-2" pref="54" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="_Suche2" min="-2" pref="96" max="-2" attributes="0"/>
+                              <EmptySpace pref="143" max="32767" attributes="0"/>
                           </Group>
                           <Component id="_Kommando" max="32767" attributes="0"/>
                       </Group>
@@ -182,7 +186,11 @@
                           <Component id="lblServer" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="_ServerName" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSuchen" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="_Suchen" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="_Suche1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Component id="lblSuchen1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="_Suche2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -224,21 +232,21 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="_Suchen"/>
+          <ComponentRef name="_Suche1"/>
         </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubmitActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="_Suchen">
+    <Component class="javax.swing.JTextField" name="_Suche1">
       <Properties>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="_ServerName"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_SuchenActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_Suche1ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblServer">
@@ -248,7 +256,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblSuchen">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Suchen"/>
+        <Property name="text" type="java.lang.String" value="Suche 1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblKommando">
@@ -267,5 +275,20 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="lblSuchen1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Suche 2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="_Suche2">
+      <Properties>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="_ServerName"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="_Suche2ActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

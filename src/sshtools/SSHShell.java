@@ -47,12 +47,14 @@ public class SSHShell extends javax.swing.JFrame {
         _ServerName = new javax.swing.JTextField();
         _Kommando = new javax.swing.JTextField();
         Submit = new javax.swing.JButton();
-        _Suchen = new javax.swing.JTextField();
+        _Suche1 = new javax.swing.JTextField();
         lblServer = new javax.swing.JLabel();
         lblSuchen = new javax.swing.JLabel();
         lblKommando = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         _Output = new javax.swing.JTextPane();
+        lblSuchen1 = new javax.swing.JLabel();
+        _Suche2 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -128,27 +130,36 @@ public class SSHShell extends javax.swing.JFrame {
         });
 
         Submit.setText("Submit");
-        Submit.setNextFocusableComponent(_Suchen);
+        Submit.setNextFocusableComponent(_Suche1);
         Submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubmitActionPerformed(evt);
             }
         });
 
-        _Suchen.setNextFocusableComponent(_ServerName);
-        _Suchen.addActionListener(new java.awt.event.ActionListener() {
+        _Suche1.setNextFocusableComponent(_ServerName);
+        _Suche1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                _SuchenActionPerformed(evt);
+                _Suche1ActionPerformed(evt);
             }
         });
 
         lblServer.setText("Server:");
 
-        lblSuchen.setText("Suchen");
+        lblSuchen.setText("Suche 1");
 
         lblKommando.setText("Kommando");
 
         jScrollPane2.setViewportView(_Output);
+
+        lblSuchen1.setText("Suche 2");
+
+        _Suche2.setNextFocusableComponent(_ServerName);
+        _Suche2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                _Suche2ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -194,8 +205,12 @@ public class SSHShell extends javax.swing.JFrame {
                                 .addGap(82, 82, 82)
                                 .addComponent(lblSuchen, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(_Suchen, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 376, Short.MAX_VALUE))
+                                .addComponent(_Suche1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(79, 79, 79)
+                                .addComponent(lblSuchen1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(_Suche2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE))
                             .addComponent(_Kommando))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Submit)))
@@ -211,7 +226,10 @@ public class SSHShell extends javax.swing.JFrame {
                             .addComponent(lblServer)
                             .addComponent(_ServerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSuchen)
-                            .addComponent(_Suchen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(_Suche1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblSuchen1)
+                                .addComponent(_Suche2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblKommando)
@@ -261,10 +279,15 @@ public class SSHShell extends javax.swing.JFrame {
         doExecute();
     }//GEN-LAST:event__ServerNameActionPerformed
 
-    private void _SuchenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__SuchenActionPerformed
+    private void _Suche1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__Suche1ActionPerformed
         // TODO add your handling code here:
         doStyle();
-    }//GEN-LAST:event__SuchenActionPerformed
+    }//GEN-LAST:event__Suche1ActionPerformed
+
+    private void _Suche2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event__Suche2ActionPerformed
+        // TODO add your handling code here:
+        doStyle();
+    }//GEN-LAST:event__Suche2ActionPerformed
 
     private void doExecute() {
         if (username == null || username.length()<3 || password == null || password.length()<2) {
@@ -287,23 +310,46 @@ public class SSHShell extends javax.swing.JFrame {
 
         
         String text = _Output.getText();
-        String string = _Suchen.getText();
+        
+        //Suche 1
+        String string1 = _Suche1.getText();
         System.out.println("doStyle-003");
-        if (string.length()>1) {
+        if (string1.length()>1) {
             System.out.println("doStyle-010");
-            SimpleAttributeSet keyWord = new SimpleAttributeSet();
-            StyleConstants.setForeground(keyWord, Color.YELLOW);
-            StyleConstants.setBackground(keyWord, Color.RED);
+            SimpleAttributeSet keyWord1 = new SimpleAttributeSet();
+            StyleConstants.setForeground(keyWord1, Color.YELLOW);
+            StyleConstants.setBackground(keyWord1, Color.RED);
             int start_loc = 0;
-            while (text.toLowerCase().indexOf(string.toLowerCase(), start_loc) > -1) {
-                int found_loc = text.toLowerCase().indexOf(string.toLowerCase(), start_loc);
-                doc.setCharacterAttributes(found_loc, string.length(), keyWord, true);
+            while (text.toLowerCase().indexOf(string1.toLowerCase(), start_loc) > -1) {
+                int found_loc = text.toLowerCase().indexOf(string1.toLowerCase(), start_loc);
+                doc.setCharacterAttributes(found_loc, string1.length(), keyWord1, true);
                 start_loc = found_loc +1;
             }
         } else {
             System.out.println("doStyle-020");
             //doc.re
         }
+        
+        
+        //Suche 1
+        String string2 = _Suche2.getText();
+        System.out.println("doStyle-003");
+        if (string2.length()>1) {
+            System.out.println("doStyle-010");
+            SimpleAttributeSet keyWord2 = new SimpleAttributeSet();
+            StyleConstants.setForeground(keyWord2, Color.GREEN);
+            StyleConstants.setBackground(keyWord2, Color.GRAY);
+            int start_loc = 0;
+            while (text.toLowerCase().indexOf(string2.toLowerCase(), start_loc) > -1) {
+                int found_loc = text.toLowerCase().indexOf(string2.toLowerCase(), start_loc);
+                doc.setCharacterAttributes(found_loc, string2.length(), keyWord2, true);
+                start_loc = found_loc +1;
+            }
+        } else {
+            System.out.println("doStyle-020");
+            //doc.re
+        }
+
     }
     /**
      * @param args the command line arguments
@@ -349,7 +395,8 @@ public class SSHShell extends javax.swing.JFrame {
     private javax.swing.JTextPane _Output;
     private javax.swing.JPasswordField _Password;
     private javax.swing.JTextField _ServerName;
-    private javax.swing.JTextField _Suchen;
+    private javax.swing.JTextField _Suche1;
+    private javax.swing.JTextField _Suche2;
     private javax.swing.JTextField _UserName;
     private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
@@ -365,5 +412,6 @@ public class SSHShell extends javax.swing.JFrame {
     private javax.swing.JLabel lblKommando;
     private javax.swing.JLabel lblServer;
     private javax.swing.JLabel lblSuchen;
+    private javax.swing.JLabel lblSuchen1;
     // End of variables declaration//GEN-END:variables
 }
