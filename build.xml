@@ -10,6 +10,15 @@
 <project name="SSHTools" default="default" basedir=".">
     <description>Builds, tests, and runs the project SSHTools.</description>
     <import file="nbproject/build-impl.xml"/>
+    <target name="-post-jar">
+        <jar jarfile="dist/SSHTools_Full.jar">
+            <zipfileset src="${dist.jar}" excludes="META-INF/*" />
+            <zipfileset src="dist/lib/jsch-0.1.53.jar" excludes="META-INF/*" />
+            <manifest>
+                <attribute name="Main-Class" value="sshtools.SSHShell"/>
+            </manifest>
+        </jar>
+    </target>
     <!--
 
     There exist several targets which are by default empty and which can be 
