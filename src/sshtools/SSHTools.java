@@ -20,7 +20,7 @@ public class SSHTools {
      * @param args the command line arguments
      */
     
-    public static String _hostname = "tasv0404";
+    public static String _hostname = "pasv0562";
     public static String _username = "di3sdn";
     public static String _password = "abdsxx14";
     public static String _command  = "hostname";
@@ -148,6 +148,8 @@ public class SSHTools {
                     }
                     if (channel.getExitStatus()>0) {
                         System.out.println("exit-status: " + channel.getExitStatus());
+                        sb.insert(0, "Shell-Status: "+channel.getExitStatus()+"\n");
+                    } else {
                     }
                     break;
                 }
