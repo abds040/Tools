@@ -14,6 +14,10 @@
         <jar jarfile="dist/SSHTools_Full.jar">
             <zipfileset src="${dist.jar}" excludes="META-INF/*" />
             <zipfileset src="dist/lib/jsch-0.1.53.jar" excludes="META-INF/*" />
+            <zipfileset src="dist/lib/activation-1.1.jar" excludes="META-INF/*" />
+            <zipfileset src="dist/lib/activation-impl.jar" excludes="META-INF/*" />
+            <zipfileset src="dist/lib/mail-1.4.1.jar" excludes="META-INF/*" />
+            <zipfileset src="dist/lib/mail-impl.jar" excludes="META-INF/*" />
             <manifest>
                 <attribute name="Main-Class" value="sshtools.SSHShell"/>
             </manifest>

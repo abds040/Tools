@@ -112,7 +112,7 @@ public class SSHShell extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Dssh");
+        setTitle("DasSSH");
         setMinimumSize(new java.awt.Dimension(800, 500));
 
         _ServerName.setNextFocusableComponent(_Kommando);
