@@ -21,8 +21,19 @@ import java.io.IOException;
  */
 public class MQBrowse {
 
+    public static void hexa(int num) {
+        int m = 0;
+        if( (m = num >>> 4) != 0 ) {
+            hexa( m );
+        }
+        System.out.print((char)((m=num & 0x0F)+(m<10 ? 48 : 55)));
+    }
+    
     public static void main(String args[]) {
         try {
+            
+            hexa(191026962);
+            /*
             String qManager = "QMIMIQ31";
             String queueName = "TARGET.QUEUE";
             String hostname = "imiq31b";
@@ -91,6 +102,7 @@ public class MQBrowse {
                     System.out.println("ERROR: " + e.getMessage());
                 }
             }
+*/
         } catch (Exception e) {
             e.printStackTrace();
         }

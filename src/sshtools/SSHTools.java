@@ -34,7 +34,7 @@ public class SSHTools {
     
     public static String _hostname = "pasv0427";
     public static String _username = "di3sdn";
-    public static String _password =                                                                                                                                                            "abdsxx15";
+    public static String _password =                                                                                                                                                            "abdsxx16";
     public static String _command  = "hostname";
     public static Properties p = new Properties();
     
@@ -201,7 +201,7 @@ public class SSHTools {
                         fw.write("Host:"+hostname+";     PID:"+_pid+";     str:"+_str+";   CMD:"+_cmd_as+"\n");
                         fw.flush();
                         long secs = convertStringToSeconds(_str);
-                        if (secs > 60l) {
+                        if (secs > 120l) {
                             if (!p.contains(hostname+_pid)) {
                                 sendMail(hostname, "Hostname:"+ hostname+"\nAction has been running for "+_str+" ("+secs+" Seconds)\n\nCommand:\n "+_cmd_as);
                                 p.put(hostname+_pid, "lll");
@@ -215,7 +215,7 @@ public class SSHTools {
                         fw.write("Host:"+hostname+";     PID:"+_pid+";     str:"+_str+";   CMD:"+_cmd_as+"\n");
                         fw.flush();
                         long secs = convertStringToSeconds(_str);
-                        if (secs > 60l) {
+                        if (secs > 120l) {
                             if (!p.contains(hostname+_pid)) {
                                 sendMail(hostname, "Hostname:"+ hostname+"\nAction has been running for "+_str+" ("+secs+" Seconds)\n\nCommand:\n "+_cmd_as);
                                 p.put(hostname+_pid, "lll");
@@ -238,6 +238,7 @@ public class SSHTools {
             System.out.println(new Date().toString());
             System.out.println("     elapsed Time:"+(   (System.currentTimeMillis()-_start)/1)+" for "+lpar_cnt+" servers");
             System.out.println("Server Not being done:"+lpar_ok.size());
+            System.out.println("Server Not being done:"+lpar_ok);
             System.out.println("Server Stops/Starts  :"+lpar_nok.size());
             System.out.println("Server Skipped  :");
             System.out.println(lpar_skp);
@@ -434,13 +435,7 @@ public class SSHTools {
     
     private static String[] getLPars() {
         String[] lpars = {
-            "nasv0003", "nasv0004", "nasv0005",  "nasv9001", "pasv0187", "pasv0188", "pasv0243", "pasv0244", "pasv0251", "pasv0264", "pasv0265",
-            "pasv0321", "pasv0322", "pasv0326e", "pasv0327e", "pasv0343", "pasv0344", "pasv0374", "pasv0375", "pasv0384", "pasv0385", "pasv0427", "pasv0428",
-            "pasv0431", "pasv0432", "pasv0433", "pasv0434", "pasv0445", "pasv0446", "pasv0466", "pasv0467", "pasv0493", "pasv0494", "pasv0562", "pasv0563",
-            "pasv0707", "pasv0708", "pasv0810", "pasv0811", "pasv0876", "pasv0877", "pasv0880", "pasv0881", "pasv0939",  "pasv1242", "pasv1243",
-            "pasv2242", "pasv2243", "pasv9037e", "pasv9038e", "pasv9046e", "pasv9047e", "pasv9051", "pasv9052", "pasv9143", "pasv9144", "pasv9153e", "pasv9154e",
-            "pasv9188", "pasv9189", "pasv9193", "pasv9194", "pasv9213", "pasv9214", "pasv9217", "pasv9225", "pasv9235", "pasv9236", "pasv9237", "pasv9238",
-            "pasv9239", "pasv9240", "pasv9241",  "pasv9243", "pasv9244", "pasv9245",  "pasv9247", "pasv9248"
+            "pasv9051", "pasv9052", "pasv9143", "pasv9144", "pasv9193", "pasv9194"
         };
         
         String[] lpars_test = {"esbitu05","esbstu05","esbstu06"};
